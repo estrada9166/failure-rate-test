@@ -3,12 +3,7 @@
 name: CI
 
 # Controls when the action will run. 
-on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: workflow_dispatch
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,3 +27,5 @@ jobs:
         with:
           # Sends test results to Cypress Dashboard
           record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.DASHBOARD_RECORD_KEY }}
