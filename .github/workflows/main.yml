@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on: workflow_dispatch
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -26,3 +26,4 @@ jobs:
           record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.DASHBOARD_RECORD_KEY }}
+
