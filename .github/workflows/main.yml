@@ -26,4 +26,4 @@ jobs:
           record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.DASHBOARD_RECORD_KEY }}
-
+          CYPRESS_INTERNAL_ENV: ${{ secrets.CYPRESS_INTERNAL_ENV }}
