@@ -28,7 +28,7 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.DASHBOARD_RECORD_KEY }}
 
-      - name: Cypress.io PROD
+      - name: Cypress.io STAGING
         # You may pin to the exact commit or the version.
         # uses: cypress-io/github-action@42b9eb53fe040e6080e3c23d12424c0d9e13cd6d
         uses: cypress-io/github-action@v2.8.2
