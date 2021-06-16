@@ -1,12 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI CRON
 
 # Controls when the action will run.
 on:
   schedule:
     # https://crontab.guru/every-night
-    - cron: 1 * * * *
+    - cron: * * * * *
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
