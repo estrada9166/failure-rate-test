@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run.
+on:
+  schedule:
+    # https://crontab.guru/every-night
+    - cron: 1 * * * *
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Cypress.io PROD
+        # You may pin to the exact commit or the version.
+        # uses: cypress-io/github-action@42b9eb53fe040e6080e3c23d12424c0d9e13cd6d
+        uses: cypress-io/github-action@v2.8.2
+        with:
+          # Sends test results to Cypress Dashboard
+          record: true
+          config-file: cypress.json
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.DASHBOARD_RECORD_KEY }}
+
+      - name: Cypress.io STAGING
+        # You may pin to the exact commit or the version.
+        # uses: cypress-io/github-action@42b9eb53fe040e6080e3c23d12424c0d9e13cd6d
+        uses: cypress-io/github-action@v2.8.2
+        with:
+          # Sends test results to Cypress Dashboard
+          record: true
+          config-file: cypress-staging.json
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.DASHBOARD_STAGING_RECORD_KEY }}
+          CYPRESS_INTERNAL_ENV: ${{ secrets.CYPRESS_INTERNAL_ENV }}
